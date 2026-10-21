@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Workshop — Independent Designer</title><link href="style.css" rel="stylesheet"/></head>
+<body class="stagger-page mosaic-page">
+<header class="index-header"><a class="index-home" href="index.html"><span class="brand-en">1dada2</span><span class="brand-zh brand-zh-aligned"><span>一</span><span>大</span><span>大</span><span>二</span></span></a><button aria-controls="home-full-menu" aria-expanded="false" aria-label="打开导航菜单" class="home-menu-toggle" type="button"><span></span><span></span><span></span></button></header><div aria-hidden="true" class="home-full-menu" id="home-full-menu"><div class="home-menu-header"><a class="index-home" href="index.html"><span class="brand-en">1dada2</span><span class="brand-zh brand-zh-aligned"><span>一</span><span>大</span><span>大</span><span>二</span></span></a><button aria-label="关闭导航菜单" class="home-menu-close" type="button">×</button></div><nav aria-label="Site sections" class="home-menu-links"><a href="projects.html"><span>Projects</span><small>项目</small></a><a href="objects.html"><span>Objects</span><small>物品</small></a><a href="furniture.html"><span>Furniture</span><small>家具</small></a><a aria-current="page" href="workshop.html"><span>Workshop</span><small>工作坊</small></a><a href="about.html"><span>About</span><small>关于</small></a></nav></div>
+<main class="stagger-main mosaic-main">
+<h1 class="stagger-heading">Workshop</h1>
+<section class="mosaic-grid compact-grid workshop-grid">
+<a class="mosaic-card span-wide" href="project-workshop-sessions.html">
+<figure class="mosaic-figure">
+<div class="mosaic-media ratio-landscape"><div class="art art-five"><div class="five-grid"><span>○</span><span>▥</span><span>⌁</span><span>◇</span><span>▦</span></div></div><div class="mosaic-hover color-green"><span>Workshop Sessions</span></div></div>
+<figcaption><strong>Workshop Sessions</strong><span>Hands-on sessions · making, assembling and playful learning</span></figcaption>
+</figure>
+</a>
+<a class="mosaic-card offset-down" href="project-workshop-sessions.html">
+<figure class="mosaic-figure">
+<div class="mosaic-media ratio-square"><div class="art art-bow"><div class="bow"><i></i><b></b><i></i></div></div><div class="mosaic-hover color-red"><span>Pop-up Craft Booth</span></div></div>
+<figcaption><strong>Pop-up Craft Booth</strong><span>Interactive booth · on-site crafting and audience participation</span></figcaption>
+</figure>
+</a>
+<a class="mosaic-card overlap-right" href="project-workshop-sessions.html">
+<figure class="mosaic-figure">
+<div class="mosaic-media ratio-tall"><div class="art art-fence"><div class="fence-line"><i></i><i></i><i></i><i></i><i></i></div></div><div class="mosaic-hover color-gray"><span>Material Experiments</span></div></div>
+<figcaption><strong>Material Experiments</strong><span>Workshop study · process, prototypes and material tests</span></figcaption>
+</figure>
+</a>
+<a class="mosaic-card offset-up" href="project-workshop-sessions.html">
+<figure class="mosaic-figure">
+<div class="mosaic-media ratio-landscape"><div class="art art-room"><div class="room-wall"></div><div class="room-mirror"></div><div class="room-bench"></div></div><div class="mosaic-hover color-orange"><span>Event Making</span></div></div>
+<figcaption><strong>Event Making</strong><span>Workshop format · temporary installations and event objects</span></figcaption>
+</figure>
+</a>
+</section>
+</main>
+<script>(function(){
+ const menu=document.getElementById('home-full-menu');
+ const open=document.querySelector('.home-menu-toggle');
+ const close=document.querySelector('.home-menu-close');
+ if(!menu||!open||!close)return;
+ function setOpen(show){
+   menu.classList.toggle('is-open',show);
+   menu.setAttribute('aria-hidden',String(!show));
+   open.setAttribute('aria-expanded',String(show));
+   document.body.classList.toggle('home-menu-open',show);
+   if(show)close.focus(); else open.focus();
+ }
+ open.addEventListener('click',()=>setOpen(true));
+ close.addEventListener('click',()=>setOpen(false));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('is-open'))setOpen(false)});
+ menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('is-open');document.body.classList.remove('home-menu-open')}));
+})();</script></body></html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Objects — 1dada2</title><link href="style.css" rel="stylesheet"/></head><body class="index-body stagger-page"><header class="index-header"><a class="index-home" href="index.html"><span class="brand-en">1dada2</span><span class="brand-zh brand-zh-aligned"><span>一</span><span>大</span><span>大</span><span>二</span></span></a><button aria-controls="home-full-menu" aria-expanded="false" aria-label="打开导航菜单" class="home-menu-toggle" type="button"><span></span><span></span><span></span></button></header><div aria-hidden="true" class="home-full-menu" id="home-full-menu"><div class="home-menu-header"><a class="index-home" href="index.html"><span class="brand-en">1dada2</span><span class="brand-zh brand-zh-aligned"><span>一</span><span>大</span><span>大</span><span>二</span></span></a><button aria-label="关闭导航菜单" class="home-menu-close" type="button">×</button></div><nav aria-label="Site sections" class="home-menu-links"><a href="projects.html"><span>Projects</span><small>项目</small></a><a aria-current="page" href="objects.html"><span>Objects</span><small>物品</small></a><a href="furniture.html"><span>Furniture</span><small>家具</small></a><a href="workshop.html"><span>Workshop</span><small>工作坊</small></a><a href="about.html"><span>About</span><small>关于</small></a></nav></div><main class="stagger-main"><h1 class="stagger-heading">Objects</h1><section aria-label="Objects portfolio" class="stagger-gallery"><div class="stagger-card offset-high"><figure class="stagger-figure"><div class="stagger-image ratio-tall art art-bread"><div class="bread-shape"><div class="bread-inner"></div></div><span class="stagger-notice">IMAGE PLACEHOLDER</span></div><figcaption><span class="stagger-title">Bread Tissue Box</span><span class="stagger-desc">Everyday object · Tissue box</span></figcaption></figure></div><div class="stagger-card offset-low"><figure class="stagger-figure"><div class="stagger-image ratio-square art art-bow"><div class="bow"><i></i><b></b><i></i></div><span class="stagger-notice">IMAGE PLACEHOLDER</span></div><figcaption><span class="stagger-title">Bow Wall Hook</span><span class="stagger-desc">Wall-mounted object · Hook</span></figcaption></figure></div><div class="stagger-card offset-mid"><figure class="stagger-figure"><div class="stagger-image ratio-landscape art art-mirror"><div class="mirror-shape"><div></div></div><span class="stagger-notice">IMAGE PLACEHOLDER</span></div><figcaption><span class="stagger-title">Bread Mirror</span><span class="stagger-desc">Everyday object · Mirror</span></figcaption></figure></div></section></main><script>(function(){
+ const menu=document.getElementById('home-full-menu');
+ const open=document.querySelector('.home-menu-toggle');
+ const close=document.querySelector('.home-menu-close');
+ if(!menu||!open||!close)return;
+ function setOpen(show){
+   menu.classList.toggle('is-open',show);
+   menu.setAttribute('aria-hidden',String(!show));
+   open.setAttribute('aria-expanded',String(show));
+   document.body.classList.toggle('home-menu-open',show);
+   if(show)close.focus(); else open.focus();
+ }
+ open.addEventListener('click',()=>setOpen(true));
+ close.addEventListener('click',()=>setOpen(false));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('is-open'))setOpen(false)});
+ menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('is-open');document.body.classList.remove('home-menu-open')}));
+})();</script></body></html>

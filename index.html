@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home — Independent Designer</title>
+  <meta name="description" content="Independent design practice: projects, objects, furniture and workshops." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="landing reimagined-home">
+  <main class="reimagined-stage">
+    <header aria-label="Main navigation" class="landing-top">
+      <a class="index-home" href="index.html"><span class="brand-en">1dada2</span><span class="brand-zh brand-zh-aligned"><span>一</span><span>大</span><span>大</span><span>二</span></span></a>
+      <button class="home-menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="home-full-menu"><span></span><span></span><span></span></button>
+    </header>
+
+    <div class="home-full-menu" id="home-full-menu" aria-hidden="true">
+      <div class="home-menu-header">
+        <a class="index-home" href="index.html"><span class="brand-en">1dada2</span><span class="brand-zh brand-zh-aligned"><span>一</span><span>大</span><span>大</span><span>二</span></span></a>
+        <button type="button" class="home-menu-close" aria-label="关闭导航菜单">&times;</button>
+      </div>
+      <nav class="home-menu-links" aria-label="Site sections">
+        <a href="projects.html"><span>Projects</span><small>项目</small></a>
+        <a href="objects.html"><span>Objects</span><small>物品</small></a>
+        <a href="furniture.html"><span>Furniture</span><small>家具</small></a>
+        <a href="workshop.html"><span>Workshop</span><small>工作坊</small></a>
+        <a href="about.html"><span>About</span><small>关于</small></a>
+      </nav>
+    </div>
+
+    <section class="reimagined-hero" aria-label="Home introduction">
+      <h1>Everything can be reimagined.</h1>
+    </section>
+
+    <section class="reimagined-canvas" aria-label="Everyday objects reimagined">
+      <article class="object-pair pair-basket" aria-label="Basket becomes wall clock">
+        <div class="pair-frame">
+          <img class="pair-image pair-default" src="images/home-reimagined/ordinary-basket.png" alt="Basket" />
+          <img class="pair-image pair-hover" src="images/home-reimagined/reimagined-basket.jpg" alt="Basket clock" />
+        </div>
+      </article>
+
+      <article class="object-pair pair-sponge" aria-label="Sponge becomes mirror">
+        <div class="pair-frame">
+          <img class="pair-image pair-default" src="images/home-reimagined/ordinary-sponge.png" alt="Sponge" />
+          <img class="pair-image pair-hover" src="images/home-reimagined/reimagined-sponge.jpg" alt="Sponge mirror" />
+        </div>
+      </article>
+
+      <article class="object-pair pair-bucket" aria-label="Bucket becomes lamp">
+        <div class="pair-frame">
+          <img class="pair-image pair-default" src="images/home-reimagined/ordinary-bucket.png" alt="Bucket" />
+          <img class="pair-image pair-hover" src="images/home-reimagined/reimagined-bucket.jpg" alt="Bucket lamp" />
+        </div>
+      </article>
+
+      <article class="object-pair pair-pump" aria-label="Pump becomes lamp">
+        <div class="pair-frame">
+          <img class="pair-image pair-default" src="images/home-reimagined/ordinary-pump.png" alt="Pump" />
+          <img class="pair-image pair-hover" src="images/home-reimagined/reimagined-pump.jpg" alt="Pump lamp" />
+        </div>
+      </article>
+
+      <article class="object-pair pair-steamer" aria-label="Steamer becomes tool cart">
+        <div class="pair-frame">
+          <img class="pair-image pair-default" src="images/home-reimagined/ordinary-steamer.png" alt="Steamer tray" />
+          <img class="pair-image pair-hover" src="images/home-reimagined/reimagined-steamer.jpg" alt="Tool cart" />
+        </div>
+      </article>
+
+      <article class="object-pair pair-weiqi" aria-label="Weiqi becomes wall hook">
+        <div class="pair-frame">
+          <img class="pair-image pair-default" src="images/home-reimagined/ordinary-weiqi.png" alt="Weiqi board" />
+          <img class="pair-image pair-hover" src="images/home-reimagined/reimagined-weiqi.jpg" alt="Weiqi wall hook" />
+        </div>
+      </article>
+
+      <article class="object-pair pair-dustpan" aria-label="Dustpan becomes magazine rack">
+        <div class="pair-frame">
+          <img class="pair-image pair-default" src="images/home-reimagined/ordinary-dustpan.png" alt="Dustpan" />
+          <img class="pair-image pair-hover" src="images/home-reimagined/reimagined-dustpan.jpg" alt="Dustpan magazine rack" />
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+  (function(){
+    const menu=document.getElementById('home-full-menu');
+    const open=document.querySelector('.home-menu-toggle');
+    const close=document.querySelector('.home-menu-close');
+    const links=menu.querySelectorAll('a');
+    function setOpen(show){
+      menu.classList.toggle('is-open',show);
+      menu.setAttribute('aria-hidden',String(!show));
+      open.setAttribute('aria-expanded',String(show));
+      document.body.classList.toggle('home-menu-open',show);
+      if(show) close.focus(); else open.focus();
+    }
+    open.addEventListener('click',()=>setOpen(true));
+    close.addEventListener('click',()=>setOpen(false));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('is-open')) setOpen(false);});
+    links.forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('is-open');document.body.classList.remove('home-menu-open');}));
+  })();
+  </script>
+</body>
+</html>
